@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^create/', views.create, name="create"),
     url(r'(?P<pk>\d+)/upvote', views.upvote, name="upvote"),
     url(r'(?P<pk>\d+)/downvote', views.downvote, name="downvote"),
+    url(r'^user/(?P<fk>\d+)', views.userposts, name="userposts"),
 ]
