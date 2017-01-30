@@ -28,12 +28,17 @@
 	  	      <span class="icon-bar"></span>
 	  	    </button>
   	    
-          <a class="navbar-brand" href="">Reddit clone</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Reddit clone</a>
         </div>
         <div id="mynav" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
 	          {% if user.is_authenticated %}
-		          <li><a href="">Logout</a></li>
+		          <li><a href="" onClick="document.getElementById('logout').submit()">Logout</a></li>
+		          <form id="logout" method="POST" action="{% url 'accounts:logout' %}">
+		          	{% csrf_token %}
+		          	<input type="hidden">
+		          </form>
+
 	          {% else %}
 	          	<li><a href="{% url 'accounts:signup' %}">Signup</a></li>
 	          	<li><a href="{% url 'accounts:login' %}">Login</a></li>
